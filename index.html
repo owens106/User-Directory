@@ -8,9 +8,17 @@
   <link rel="stylesheet" href="index.css">
 </head>
 <body>
-  <h1>User Directory</h1>
+  <h1 class="h1_0">User Directory</h1>
   <p class ="greeting">Welcome Friend</p>
-  <button id="button2" class="greeting">NO, click me</button>
+  <h1 class ="h1_1">The second Heading</h1>
+  <button id="button2" class="greeting">You have clicked me 0 times</button>
+  <button class = "headChange">Click me to auto change the first Header</button>
+  <button class = "head2Change">Click me to auto change the second Header</button>
+  <form onsubmit="H1FormChange(); return false;">
+      Custom Message for the First Header:<br>
+      <input type="text" name='Message' id='input'><br>
+      <input type="submit">
+  </form>
 
 
   <script src="index.js"></script>
