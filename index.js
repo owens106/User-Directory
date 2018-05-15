@@ -11,8 +11,9 @@ const handleSubmit = function(ev) {
 
   //f.userName.value = ''
   //f.age.value=''
-  //dont reset each field use form.reset
+  //dont reset each field use form.reset(). doesnt reset cursor
   f.reset()
+  f.userName.focus()//sets focus to certain field
 }
 
 form.addEventListener('submit', handleSubmit)
