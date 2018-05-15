@@ -9,8 +9,10 @@ const handleSubmit = function(ev) {
   //users.textContent += ' ' + userName
   users.innerHTML += '<p>' + userName + ", "+age+'</p>' //adds each into own paragraph
 
-  f.userName.value = ''
-  f.age.value=''
+  //f.userName.value = ''
+  //f.age.value=''
+  //dont reset each field use form.reset
+  f.reset()
 }
 
 form.addEventListener('submit', handleSubmit)
