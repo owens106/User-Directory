@@ -7,12 +7,14 @@ const handleSubmit = function(ev) {
   const f = ev.target
   const userName = f.userName.value
   const age = f.age.value
+  const favColor = f.color.value
   //users.innerHTML += `<p>${userName}, ${age} </p>` //adds each into own paragraph
   const p=document.createElement('p')
   p.textContent = `${userName}, ${age}`
+  p.style.color=favColor
   users.appendChild(p) //adds p to the end of users
-  //dont reset each field use form.reset(). doesnt reset cursor
-  f.reset()
+
+  f.reset()  //dont reset each field use form.reset(). doesnt reset cursor
   f.userName.focus()//sets focus to certain field
 }
 
