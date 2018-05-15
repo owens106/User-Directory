@@ -16,14 +16,13 @@ function H2Change_(){
     const H2= document.querySelector('h1.h1_1')
     H2.textContent="You just Changed The second Header"
 }
-function H1FormChange(){
+function addToDirectory(){
+    
     let input = document.getElementById("input").value
-    console.log("test")
-    const H1 = document.querySelector('h1.h1_0')
-    H1.textContent=input
+    const directory = document.getElementById('users')
+    directory.textContent=directory.textContent+= " "+input+ " "
     return false
 }
 clickTrack.addEventListener('click',counter)
 H1Change.addEventListener('click',H1Change_)
 H2Change.addEventListener('click',H2Change_)
-//form.addEventListener('submit',H1FormChange) one way to do something when submit happens
