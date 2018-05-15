@@ -14,8 +14,8 @@
   <button id="button2" class="greeting">You have clicked me 0 times</button>
   <button class = "headChange">Click me to auto change the first Header</button>
   <button class = "head2Change">Click me to auto change the second Header</button>
-  <form onsubmit="H1FormChange(); return false;">
-      Custom Message for the First Header:<br>
+  <form onsubmit="H1FormChange(); return false;"><!--onsubmit will execute the code given to it when submit-->
+      Custom Message for the First Header:<br><!--happens, need to return false or else it will default to undefined and page will reset-->
       <input type="text" name='Message' id='input'><br>
       <input type="submit">
   </form>

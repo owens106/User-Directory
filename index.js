@@ -26,4 +26,4 @@ function H1FormChange(){
 clickTrack.addEventListener('click',counter)
 H1Change.addEventListener('click',H1Change_)
 H2Change.addEventListener('click',H2Change_)
-//form.addEventListener('submit',H1FormChange)
+//form.addEventListener('submit',H1FormChange) one way to do something when submit happens
