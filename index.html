@@ -16,6 +16,8 @@
   <button class = "head2Change">Click me to auto change the second Header</button>
   <form onsubmit="H1FormChange(); return false;"><!--onsubmit will execute the code given to it when submit-->
       Custom Message for the First Header:<br><!--happens, need to return false or else it will default to undefined and page will reset-->
+      <!-- can use the <label> element to help organize labels, also for assistive tech, aka: common practice to use labels-->
+        <!--<label for="why you need it">Name</label>-->
       <input type="text" name='Message' id='input'><br>
       <input type="submit">
   </form>
