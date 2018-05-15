@@ -13,10 +13,19 @@ const handleSubmit = function(ev) {
   const liName = document.createElement('li')
   const liAge = document.createElement('li')
   const liColor = document.createElement('li')
+  const liColor_Div=document.createElement('div')
+
+  liColor_Div.style.height= '3rem'
+  liColor_Div.style.width= '6rem'
+  liColor_Div.style.backgroundColor=favColor
+  
 
   liName.textContent=`Name: ${userName}`
   liAge.textContent=`Age: ${age}`
   liColor.textContent=`Favoirte Color: `
+
+  liColor.appendChild(liColor_Div)
+
 
   ul.appendChild(liName)
   ul.appendChild(liAge)
