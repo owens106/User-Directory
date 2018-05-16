@@ -1,55 +1,57 @@
-const form = document.querySelector('#userForm')
+const form = document.querySelector('form#userForm')
 
- 
+function renderColor(color) {
+  const colorDiv = document.createElement('div')
+  colorDiv.style.backgroundColor = color
+  colorDiv.style.width = '6rem'
+  colorDiv.style.height = '3rem'
+
+  return colorDiv
+}
+
+function renderListItem(label, value) {
+  const item = document.createElement('li')
+
+  const term = document.createElement('dt')
+  term.textContent = label
+
+  const description = document.createElement('dd')
+
+  try {
+    description.appendChild(value)
+  } catch(e) {
+    description.textContent += value
+  }
+
+  item.appendChild(term)
+  item.appendChild(description)
+  return item
+}
+
+function renderList(data) {
+  const list = document.createElement('dl')
+  Object.keys(data).forEach(label => {
+    const item = renderListItem(label, data[label])
+    list.appendChild(item)
+  })
+  return list
+}
+
 const handleSubmit = function(ev) {
   ev.preventDefault()
+  const form = ev.target
+  const user = {
+    'Name': form.userName.value,
+    'Age': form.age.value,
+    'Favorite Color': renderColor(form.favoriteColor.value),
+  }
+
+  const list = renderList(user)
   const users = document.querySelector('#users')
-  const f = ev.target
-  const userName = f.userName.value
-  const age = f.age.value
-  const favColor = f.color.value
-  
-  renderList(userName,age,favColor)
- 
-  f.reset()  //dont reset each field use form.reset(). doesnt reset cursor
-  f.userName.focus()//sets focus to certain field
-}
-const renderColor=function(color){
-    
-    const liColor_Div=document.createElement('div')
-    liColor_Div.style.height= '50px'
-    liColor_Div.style.width= '50px'
-    liColor_Div.style.backgroundColor=color
+  users.appendChild(list)
 
-    return [liColor_Div]
-}
-const renderList=function(name,age,color){
-    //do something with type of entry
-    const ul=document.createElement('ul')
-    ul.appendChild(renderListItem(name,0))
-    ul.appendChild(renderListItem(age,1))
-    ul.appendChild(renderListItem(color,2))
-    users.appendChild(ul)
-
-}
-const renderListItem=function(entry,flag){
-    //do something with type of entry to format things
-    const liItem = document.createElement('li')
-
-    if(flag ==0){
-        liItem.textContent=`Name: ${entry}`
-    }
-    else if(flag ==1){
-        liItem.textContent=`Age: ${entry}`
-    }
-    else if(flag ==2){
-        liItem.textContent=`Color:`
-        var array=renderColor(entry)
-        //debugger
-        liItem.appendChild(array[0])
-
-    }
-    return liItem
+  form.reset()
+  form.userName.focus()
 }
 
 form.addEventListener('submit', handleSubmit)
