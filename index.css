@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Comfortaa');
 
 body {
-    font-family: 'Comfortaa', cursive;;
+    font-family: 'Comfortaa', cursive;
+}
+
+main{
+    display: flex;
+    justify-content: space-around
 }
