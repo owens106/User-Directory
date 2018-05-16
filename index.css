@@ -8,3 +8,13 @@ main{
     display: flex;
     justify-content: space-around
 }
+
+#userForm{
+    background-color: lightgoldenrodyellow;
+    padding: 1rem;
+    border: 10px solid #dddddd;
+}
+
+label{
+    display: block
+}
