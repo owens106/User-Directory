@@ -21,11 +21,26 @@ const handleSubmit = function(ev) {
   f.userName.focus()//sets focus to certain field
 }
 const renderColor=function(color){
+    
     const liColor_Div=document.createElement('div')
-    liColor_Div.style.height= '3rem'
-    liColor_Div.style.width= '6rem'
+    liColor_Div.style.height= '50px'
+    liColor_Div.style.width= '50px'
     liColor_Div.style.backgroundColor=color
-    return liColor_Div
+    //liColor_Div.style.cssFloat='left'
+    //liColor_Div.style.padding='5px'
+
+   // liColor_Div.style.display='inline'
+
+
+    const liColor_Div2=document.createElement('div')
+    liColor_Div2.style.height= '50px'
+    liColor_Div2.style.width= '10px'
+    liColor_Div2.style.backgroundColor='green'
+    liColor_Div2.style.cssFloat='left'
+    liColor_Div2.style.padding='5px'
+
+
+    return [liColor_Div]
 }
 const renderList=function(name,age,color){
     //do something with type of entry
@@ -48,8 +63,12 @@ const renderListItem=function(entry,flag){
         liItem.textContent=`Age: ${entry}`
     }
     else if(flag ==2){
-        liItem.textContent=`Color: `
-        liItem.appendChild(renderColor(entry))
+        liItem.textContent=`Color:`
+        var array=renderColor(entry)
+        //debugger
+        liItem.appendChild(array[0])
+        //liItem.appendChild(array[1])
+
     }
     return liItem
 }
