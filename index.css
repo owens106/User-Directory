@@ -14,10 +14,17 @@ main{
     padding: 1rem;
     border: 10px solid #dddddd;
 }
+dl{
+    padding: 1rem;
+}
 
 label{
     display: block
 }
 dl > li{   
     list-style: none
+}
+
+dl:nth-of-type(even){
+    background-color: whitesmoke;
 }
