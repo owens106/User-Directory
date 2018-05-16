@@ -1,36 +1,28 @@
-const form = document.querySelector('form#userForm')
+const form = document.querySelector('#userForm')
 
 function renderColor(color) {
   const colorDiv = document.createElement('div')
   colorDiv.style.backgroundColor = color
   colorDiv.style.width = '6rem'
   colorDiv.style.height = '3rem'
-
   return colorDiv
 }
 
 function renderListItem(label, value) {
   const item = document.createElement('li')
-
-  const term = document.createElement('dt')
-  term.textContent = label
-
-  const description = document.createElement('dd')
-
+  item.textContent = `${label}: `
   try {
-    description.appendChild(value)
+    item.appendChild(value)
   } catch(e) {
-    description.textContent += value
+    item.textContent += value
   }
-
-  item.appendChild(term)
-  item.appendChild(description)
   return item
 }
 
 function renderList(data) {
-  const list = document.createElement('dl')
-  Object.keys(data).forEach(label => {
+  const list = document.createElement('ul')
+  const labels = Object.keys(data)
+  labels.forEach(label => {
     const item = renderListItem(label, data[label])
     list.appendChild(item)
   })
@@ -39,19 +31,18 @@ function renderList(data) {
 
 const handleSubmit = function(ev) {
   ev.preventDefault()
-  const form = ev.target
+  const f = ev.target
   const user = {
-    'Name': form.userName.value,
-    'Age': form.age.value,
-    'Favorite Color': renderColor(form.favoriteColor.value),
+    userName: f.userName.value,
+    age: f.age.value,
+    favoriteColor: renderColor(f.favoriteColor.value),
   }
 
-  const list = renderList(user)
   const users = document.querySelector('#users')
-  users.appendChild(list)
+  users.appendChild(renderList(user))
 
-  form.reset()
-  form.userName.focus()
+  f.reset()
+  f.userName.focus()
 }
 
 form.addEventListener('submit', handleSubmit)
