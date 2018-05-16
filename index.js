@@ -2,11 +2,6 @@ const form = document.querySelector('#userForm')
 
  
 const handleSubmit = function(ev) {
-    /*RenderList(name||age||color)--> calls renderListItem 3 times
-
-
-
-    */
   ev.preventDefault()
   const users = document.querySelector('#users')
   const f = ev.target
@@ -16,7 +11,6 @@ const handleSubmit = function(ev) {
   
   renderList(userName,age,favColor)
  
-
   f.reset()  //dont reset each field use form.reset(). doesnt reset cursor
   f.userName.focus()//sets focus to certain field
 }
@@ -26,19 +20,6 @@ const renderColor=function(color){
     liColor_Div.style.height= '50px'
     liColor_Div.style.width= '50px'
     liColor_Div.style.backgroundColor=color
-    //liColor_Div.style.cssFloat='left'
-    //liColor_Div.style.padding='5px'
-
-   // liColor_Div.style.display='inline'
-
-
-    const liColor_Div2=document.createElement('div')
-    liColor_Div2.style.height= '50px'
-    liColor_Div2.style.width= '10px'
-    liColor_Div2.style.backgroundColor='green'
-    liColor_Div2.style.cssFloat='left'
-    liColor_Div2.style.padding='5px'
-
 
     return [liColor_Div]
 }
@@ -49,7 +30,6 @@ const renderList=function(name,age,color){
     ul.appendChild(renderListItem(age,1))
     ul.appendChild(renderListItem(color,2))
     users.appendChild(ul)
-
 
 }
 const renderListItem=function(entry,flag){
@@ -67,7 +47,6 @@ const renderListItem=function(entry,flag){
         var array=renderColor(entry)
         //debugger
         liItem.appendChild(array[0])
-        //liItem.appendChild(array[1])
 
     }
     return liItem
